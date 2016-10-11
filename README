@@ -1,0 +1,6 @@
+Cloth simulation started Oct 11 2016
+
+- Template Vector3 class
+- Decent Makefile
+- setup in openGL then webGL
+- parallelisation openMP / MPI
