@@ -10,12 +10,12 @@ int main()
   /* for(int i = 0; i < 3; i++) */
   /*   cout << arr[i] << endl; */
   /* cout << ":w!" << endl; */
-  Vector3 vec(1.0,2.0,4.0);
-  Vector3 vec1(2.0,3.0,4.0);
+  Vector3<float>  vec(1.0,2.0,4.0);
+  Vector3<float> vec1(2.0,3.0,4.0);
   cout << vec << endl;
   cout << vec + vec1 << endl;
 
-  ParticleSystem part;
-  part.TimeStep();
+  /* ParticleSystem part; */
+  /* part.TimeStep(); */
 
 }

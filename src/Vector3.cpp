@@ -1,18 +1,24 @@
 #include "Vector3.h"
 #include <limits>
 
-const Vector3 Vector3::Zero = Vector3(0,0,0);
-const float Vector3::Epsilon = std::numeric_limits<float>::epsilon();
+template <class T>
+const Vector3<T> Vector3<T>::Zero = Vector3(0,0,0);
 
-Vector3::Vector3()
+template <class T>
+const T Vector3<T>::Epsilon = std::numeric_limits<T>::epsilon();
+
+template <class T>
+Vector3<T>::Vector3()
 {
 }
 
-Vector3::Vector3(float x, float y, float z) : X( x ) , Y( y ) , Z( z )
+template <class T>
+Vector3<T>::Vector3(T x, T y, T z) : X( x ) , Y( y ) , Z( z )
 {
 }
 
-Vector3& Vector3::operator+=(const Vector3& vec)
+template <class T>
+Vector3<T>& Vector3<T>::operator+=(const Vector3& vec)
 {
   X += vec.X;
   Y += vec.Y;
@@ -20,7 +26,8 @@ Vector3& Vector3::operator+=(const Vector3& vec)
   return *this;
 }
 
-Vector3& Vector3::operator-=(const Vector3& vec)
+template <class T>
+Vector3<T>& Vector3<T>::operator-=(const Vector3& vec)
 {
   X -= vec.X;
   Y -= vec.Y;
@@ -28,7 +35,8 @@ Vector3& Vector3::operator-=(const Vector3& vec)
   return *this;
 }
 
-Vector3& Vector3::operator*=(float num)
+template <class T>
+Vector3<T>& Vector3<T>::operator*=(T num)
 {
   X *= num;
   Y *= num;
@@ -36,7 +44,8 @@ Vector3& Vector3::operator*=(float num)
   return *this;
 }
 
-Vector3& Vector3::operator/=(float num)
+template <class T>
+Vector3<T>& Vector3<T>::operator/=(T num)
 {
   this->X /= num;
   this->Y /= num;
@@ -44,10 +53,14 @@ Vector3& Vector3::operator/=(float num)
   return *this;
 }
 
-ostream& operator<<(ostream& os, const Vector3& vec)
-{
-  os.precision(3);
-  os << vec.X << " " << vec.Y << " " << vec.Z  << endl;
-  return os;
-}
+/* template <class T> */
+/* ostream& operator<<(ostream& os, const Vector3<T>& vec) */
+/* { */
+/*   os.precision(3); */
+/*   os << vec.X << " " << vec.Y << " " << vec.Z  << endl; */
+/*   return os; */
+/* } */
 
+/* template <typename float> ostream& operator<< <float>(ostream& os, const Vector3<float>& vec); */
+
+template class Vector3<float>;

@@ -6,30 +6,35 @@
 using namespace std;
 const int SIZE = 3;
 
-class Vector3
+template <typename T> class Vector3;
+
+template <class T> 
+ostream& operator<< (ostream& os, const Vector3<T>&);
+
+template <class T> class Vector3
 {
   public:
 
-    float X;
-    float Y;
-    float Z;
+    T X;
+    T Y;
+    T Z;
 
     Vector3();
-    Vector3(float x, float y, float z);
+    Vector3(T x, T y, T z);
 
     Vector3         operator+(const Vector3&) const;
     Vector3         operator-(const Vector3&) const;
     Vector3         operator-() const;
-    Vector3         operator*(float) const;
-    Vector3         operator/(float) const;
+    Vector3         operator*(T) const;
+    Vector3         operator/(T) const;
 
-    float&          operator[](int x) { return X; }
+    T&          operator[](int x) { return X; }
     Vector3&        operator+=(const Vector3&);
     Vector3&        operator-=(const Vector3&);
-    Vector3&        operator*=(float);
-    Vector3&        operator/=(float);
+    Vector3&        operator*=(T);
+    Vector3&        operator/=(T);
 
-    friend ostream& operator<<(ostream& os, const Vector3&);
+    friend ostream& operator<< <>(ostream& os, const Vector3<T>&);
 
     bool            operator==(const Vector3&) const;
     bool            operator!=(const Vector3&) const;
@@ -38,43 +43,59 @@ class Vector3
 
 
     static const Vector3    Zero;
-    static const float      Epsilon;
+    static const T      Epsilon;
 };
 
 
-inline bool Vector3::operator==(const Vector3& vec) const
+template <class T>
+inline bool Vector3<T>::operator==(const Vector3& vec) const
 {
   return X == vec.X && Y == vec.Y && Z == vec.Z;
 }
 
-inline bool Vector3::operator!=(const Vector3& vec) const
+template <class T>
+inline bool Vector3<T>::operator!=(const Vector3& vec) const
 {
   return X != vec.X || Y != vec.Y || Z != vec.Z;
 }
 
-inline Vector3 Vector3::operator+(const Vector3& vec) const
+template <class T>
+inline Vector3<T> Vector3<T>::operator+(const Vector3& vec) const
 {
   return Vector3(X + vec.X, Y + vec.Y, Z + vec.Z);
 }
 
-inline Vector3 Vector3::operator-(const Vector3& vec) const
+template <class T>
+inline Vector3<T> Vector3<T>::operator-(const Vector3& vec) const
 {
   return Vector3(X - vec.X, Y - vec.Y, Z - vec.Z);
 }
 
-inline Vector3 Vector3::operator-() const
+template <class T>
+inline Vector3<T> Vector3<T>::operator-() const
 {
   return Vector3(-X,-Y,-Z);
 }
 
-inline Vector3 Vector3::operator*(float num) const
+template <class T>
+inline Vector3<T> Vector3<T>::operator*(T num) const
 {
   return Vector3(X * num, Y * num, Z * num);
 }
 
-inline Vector3 Vector3::operator/(float num) const
+template <class T>
+inline Vector3<T> Vector3<T>::operator/(T num) const
 {
   return Vector3(X / num, Y / num, Z / num);
 }
+
+template <class T>
+ostream& operator<< (ostream& os, const Vector3<T>& vec)
+{
+  os.precision(3);
+  os << vec.X << " " << vec.Y << " " << vec.Z  << endl;
+  return os;
+}
+
 
 #endif

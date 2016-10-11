@@ -4,10 +4,10 @@
 // Verlet integration step
 void ParticleSystem::Verlet() {
   for(int i=0; i<NUM_PARTICLES; i++) {
-    Vector3& x = m_x[i];
-    Vector3 temp = x;
-    Vector3& oldx = m_oldx[i];
-    Vector3& a = m_a[i];
+    Vector3<float>& x    = m_x[i];
+    Vector3<float> temp  = x;
+    Vector3<float>& oldx = m_oldx[i];
+    Vector3<float>& a     = m_a[i];
     x += x-oldx+a*m_fTimeStep*m_fTimeStep;
     oldx = temp;
   }
