@@ -64,3 +64,4 @@ Vector3<T>& Vector3<T>::operator/=(T num)
 /* template <typename float> ostream& operator<< <float>(ostream& os, const Vector3<float>& vec); */
 
 template class Vector3<float>;
+template class Vector3<int>;

@@ -1,6 +1,18 @@
 Cloth simulation started Oct 11 2016
 
-- Template Vector3 class
+- Template Vector3 class - DONE
 - Decent Makefile
 - setup in openGL then webGL
 - parallelisation openMP / MPI
+- vector representation of data structure 
+
+steps:
+
+-implement constrains (ignore boundary)
+-implement vmax and vmin
+-need to think about how to visualise array of particles using openGL
+
+IDEAS FOR NEXT PROJECT
+- 3D cloth - GPU implementation 
+- Stickman
+- 
