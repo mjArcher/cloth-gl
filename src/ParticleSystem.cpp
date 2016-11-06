@@ -16,7 +16,9 @@ ParticleSystem::ParticleSystem(int nodes)
   /* m_constraints = temp; */
 
   cout << "initial size " << m_constraints.size() << endl;
-
+  
+  Vector3<float> vg(0,0,0);
+  m_vGravity = vg;
 
 
   initialiseParticleArray(nodes/6);
@@ -39,6 +41,7 @@ void ParticleSystem::initialiseParticleArray(int nodes) {
       x = j*len;
       Vector3<float> particle(x, y, 0);
       m_x[counter] = particle;
+      m_oldx[counter] = particle;
       counter++;
     }
   } 

@@ -25,7 +25,7 @@ class ParticleSystem {
   Vector3<float>     m_x[NUM_PARTICLES]; // Current positions
   Vector3<float>     m_oldx[NUM_PARTICLES]; // Previous positions
   Vector3<float>     m_a[NUM_PARTICLES]; // Force accumulators
-  Vector3<float>     m_vGravity; // Gravity
+  Vector3<float>     m_vGravity; // Gravity initialiation
   float              m_fTimeStep;
 
   public:
